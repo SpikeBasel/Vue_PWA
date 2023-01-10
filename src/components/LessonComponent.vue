@@ -9,7 +9,20 @@ import LessonService from '../LessonService';
 export default {
 
   name: 'LessonComponent',
-  
+  data() {
+    return {
+      lessons: [],
+      error: '',
+      text: ''
+    }
+  },
+  async created() {
+    try {
+      this.lessons = await LessonService.getLessons();
+    } catch (error) {
+      this.error = error.message;
+    }
+  }
 }
 </script>
 
