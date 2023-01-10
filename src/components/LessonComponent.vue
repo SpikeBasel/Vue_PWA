@@ -45,5 +45,32 @@ export default {
   font-size: 25px;
   margin: 5px;
 }
-
+.lessons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lesson {
+  text-align: left;
+  border: 4px solid rgb(162, 199, 221);
+  margin: 30px;
+  padding: 25px;
+  height: 190px;
+}
+.lesson-text{
+  padding: 10px;
+  margin-bottom: 400px;
+}
+.error {
+  background-color: brown;
+  padding: 25px;
+  color: white;
+}
+input[name="search-box"]{
+    display: block;
+    margin: 2rem auto;
+    max-width: 500px;
+    width: 95%;
+    padding: 0.5rem 1rem;
+}
 </style>
