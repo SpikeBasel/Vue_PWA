@@ -32,7 +32,12 @@ class LessonService {
       })
     }
   
-
+    // Delete Lesson
+    static deleteLesson(id) {
+      return fetch(`${url}${id}`, {
+        method: 'DELETE'
+      });
+    }
   }
   
   export default LessonService;
