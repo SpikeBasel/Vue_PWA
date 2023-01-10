@@ -18,7 +18,21 @@ class LessonService {
         }
       });
     }
- 
+    
+    // Create Lesson
+    static insertLesson(text) {
+      return fetch(url,{
+        method:  'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          topic: text
+        })
+      })
+    }
+  
+
   }
   
   export default LessonService;
