@@ -1,5 +1,5 @@
 
-const url = '//express-env.eba-bitp3hp2.ap-northeast-1.elasticbeanstalk.com/lessons/';
+const url = 'http://express-env.eba-bitp3hp2.ap-northeast-1.elasticbeanstalk.com/lessons/';
 
 class LessonService {
 

@@ -1,26 +1,33 @@
 <!-- eslint-disable vue/valid-template-root -->
 <template>
   <div>
+    <img src="/img/icons/android-chrome-192x192.png" alt="" class="image-size">
     <input type="text" name="search-box" placeholder="Search by location..." @keyup="search" />
-    <section class="d-flex justify-content-center row-padding">
+    <section class="d-flex justify-content-center ">
       <p class="error" v-if="error">{{ error }}</p>
-      <div class="d-flex flex-row justify-content-center">
-        <div v-for="(lesson, index) in state.searchResults" v-bind:item="lesson" v-bind:index="index" v-bind:key="lesson._id" class="lesson" >
-          <div class="row">
-            <div class="col-md-9 d-flex justify-content-start">
-              <ul class="lesson-text me-4">
-                <li> topic: {{ lesson.topic }} </li>
-                <li> location: {{ lesson.location }} </li>
-                <li> price: {{ lesson.price }} </li>
-                <li> space: {{ lesson.space }} </li>
-              </ul>
+      <div class="row justify-content-center">
+        <div v-for="(lesson, index) in state.searchResults" v-bind:item="lesson" v-bind:index="index" v-bind:key="lesson._id" class="d-flex justify-content-center col-md-4" >
+          <div class="card set-border" style="width: 24rem;">
+            <div class="card-body">
+              <h5 class="card-title">
+                <div class="row">
+                  <div class="col">
+                    <ul class="set-alignment-left">
+                      <li> topic: {{ lesson.topic }} </li>
+                      <li> location:  {{ lesson.location }} </li>
+                      <li> price: {{ lesson.price }} </li>
+                      <li> space: {{ lesson.space }} </li>
+                    </ul>
+                  </div>
+                  <div class="col set-alignment-right">
+                    <img v-bind:src="lesson.pic" class="image-size" />
+                  </div>
+                </div>
+              </h5>
+              <div class="d-flex justify-content-center">
+                <button class="cart-button" v-on:click="updatelesson(lesson)">Add to cart</button>
+              </div>
             </div>
-            <div class="col-md-2 d-flex justify-content-end mt-3">
-              <img v-bind:src="lesson.pic" class="image-size" />
-            </div>
-          </div>
-          <div class="d-flex justify-content-center">
-            <button class="cart-button" v-on:click="updatelesson(lesson)">Add to cart</button>
           </div>
         </div>
       </div>
@@ -132,24 +139,6 @@ export default {
   font-size: 15px;
   margin: 5px;
 }
-.lessons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.lesson {
-  text-align: left;
-  border: 4px solid rgb(162, 199, 221);
-  width: 100%;
-  padding: 10px;
-  margin: 10px;
-  height: 230px;
-}
-.lesson-text{
-  padding-top: 10px;
-  text-align: left;
-
-}
 .error {
   background-color: brown;
   padding: 25px;
@@ -166,10 +155,6 @@ input[name="search-box"]{
   height: 60px;
   width: 60px;
 }
-.row-padding{
-  padding: 30px;
-  margin: 30px;
-}
 .form-padding{
   padding-left: 30%;
   padding-right: 30%;
@@ -180,5 +165,14 @@ input[name="search-box"]{
   color: white;
   font-weight: bold;
   border: 2px solid rgb(114, 114, 114);
+}
+.set-border {
+  border: 4px solid rgb(162, 199, 221);
+}
+.set-alignment-left {
+  text-align: left;
+}
+.set-alignment-right {
+  text-align: right;
 }
 </style>
